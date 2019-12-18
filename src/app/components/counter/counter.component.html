@@ -1,6 +1,9 @@
 <p>counter works!</p>
 
-<p>{{ count$ | async }}</p>
+<p *ngIf="!(countActive$ | async) && !(countError$ | async)">{{ count$ | async }}</p>
+
+<p *ngIf="countActive$ | async">Loading</p>
+<p *ngIf="countError$ | async">Error</p>
 
 <button type="button" (click)="increment()">Increment</button>
 <button type="button" (click)="getRandom()">Random</button>
