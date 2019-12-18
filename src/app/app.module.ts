@@ -5,25 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { IAppState } from './store/app-state.interface';
+import { appStateReducer } from './store/app-state.reducer';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CounterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
-    })
-  ],
+  declarations: [AppComponent, CounterComponent],
+  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot<IAppState>(appStateReducer)],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
