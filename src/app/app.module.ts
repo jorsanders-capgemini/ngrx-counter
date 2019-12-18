@@ -7,10 +7,12 @@ import { CounterComponent } from './components/counter/counter.component';
 import { StoreModule } from '@ngrx/store';
 import { IAppState } from './store/app-state.interface';
 import { appStateReducer } from './store/app-state.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CountEffects } from './store/count/count.effects';
 
 @NgModule({
   declarations: [AppComponent, CounterComponent],
-  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot<IAppState>(appStateReducer)],
+  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot<IAppState>(appStateReducer), EffectsModule.forRoot([CountEffects])],
   providers: [],
   bootstrap: [AppComponent]
 })

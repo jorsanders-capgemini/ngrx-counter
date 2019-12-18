@@ -3,7 +3,7 @@ import { selectCount, IAppState } from 'src/app/store/app-state.interface';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { selectCountValue } from 'src/app/store/count/count.state.interface';
-import { IncrementCount } from 'src/app/store/count/count.actions';
+import { IncrementCount, GetCountError, GetCount } from 'src/app/store/count/count.actions';
 
 @Component({
   selector: 'app-counter',
@@ -21,5 +21,9 @@ export class CounterComponent implements OnInit {
 
   increment() {
     this.store.dispatch(new IncrementCount());
+  }
+
+  getRandom() {
+    this.store.dispatch(new GetCount());
   }
 }
