@@ -4,7 +4,7 @@ import { selectCount } from '../app-state.interface';
 export interface ICountState {
   value: number;
   isActive: boolean;
-  error: boolean;
+  error: Error;
 }
 
 export const selectCountValue = createSelector(selectCount, s => s.value);

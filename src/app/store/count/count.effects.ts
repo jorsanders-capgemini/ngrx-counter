@@ -18,7 +18,7 @@ export class CountEffects {
     switchMap(action =>
       this.countService.getRandom().pipe(
         map(count => new GetCountSuccess(count)),
-        catchError(() => of(new GetCountError()))
+        catchError(error => of(new GetCountError(error)))
       )
     )
   );

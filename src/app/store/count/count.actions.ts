@@ -23,6 +23,10 @@ export class GetCountSuccess implements Action {
 
 export class GetCountError implements Action {
   public readonly type = GET_COUNT_ERROR;
+  public readonly error: Error;
+  constructor(error: Error) {
+    this.error = error;
+  }
 }
 
 export class IncrementCount implements Action {

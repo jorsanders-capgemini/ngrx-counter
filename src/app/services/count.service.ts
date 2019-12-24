@@ -10,6 +10,7 @@ export class CountService {
   getRandom(): Observable<number> {
     // This is a function to simulate an observeable. Which can fail, succeed and give no response.
     const resultType = this.getRandomInt(0, 2);
+
     switch (resultType) {
       case 0: {
         // simulate success
@@ -17,7 +18,7 @@ export class CountService {
       }
       case 1: {
         // simulate failed response
-        return throwError('I decided to crash');
+        return throwError(new Error('Simulated bad response from server'));
       }
       default: {
         // simulate no response

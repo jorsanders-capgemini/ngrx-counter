@@ -12,7 +12,7 @@ import { IncrementCount, GetCountError, GetCount } from 'src/app/store/count/cou
 })
 export class CounterComponent implements OnInit {
   public count$: Observable<number>;
-  public countError$: Observable<boolean>;
+  public countError$: Observable<Error>;
   public countActive$: Observable<boolean>;
 
   constructor(private readonly store: Store<IAppState>) {}
